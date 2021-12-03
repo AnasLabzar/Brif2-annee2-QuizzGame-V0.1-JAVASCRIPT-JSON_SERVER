@@ -1,18 +1,9 @@
-const fetchData = async () => {
-    let resp = await fetch("http://localhost:3000/posts", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let text = await resp.json()
-    return text
-}
+import { Questions } from "../addQuestion.js"
+let quest = new Questions();
 
 const ViewAll = async () => {
-    let data = await fetchData()
-
+    let data = await quest.fetchData();
+    console.log(data);
     let div = document.createElement('div')
     div.innerHTML = ""
     data.map(({
@@ -33,3 +24,7 @@ const ViewAll = async () => {
         text: `${div.innerHTML}`
     })
 }
+
+document.getElementById('sweet').addEventListener('click',()=> {
+    ViewAll();
+})

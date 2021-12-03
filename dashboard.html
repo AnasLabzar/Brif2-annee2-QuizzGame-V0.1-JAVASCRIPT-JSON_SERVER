@@ -106,7 +106,7 @@
                                     </h4>
                                 </div>
                                 <div class="col">
-                                    <button id="sweet" onclick="ViewAll()" class="button btn1 alternative">
+                                    <button id="sweet"  class="button btn1 alternative">
                                         View all
                                     </button>
 
@@ -126,9 +126,9 @@
                                 </div>
                                 <div class="add-type-question">
                                     <p>Add Type Question</p>
-                                    <select name="" id="">
-                                        <option value="mult">Multi Choix</option>
-                                        <option value="sing">Single Choix</option>
+                                    <select name="" id="type-question" onchange="btntype()" >
+                                        <option disabled>Choose type</option>
+                                        <option value="multichoix">Multi Choix</option>
                                         <option value="TF">True/False</option>
                                     </select>
                                 </div>
@@ -137,7 +137,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <p>Add Level</p>
-                                        <select name="" id="level" onchange="yo()">
+                                        <select  name="" id="level" onchange="yo()">
                                             <option value="1">F</option>
                                             <option value="5">E</option>
                                             <option value="10">D</option>
@@ -163,22 +163,22 @@
                                     </div>
                                     <div class=" col">
                                         <p>Points</p>
-                                        <select class="appendselect" name="" id="">
+                                        <select class="appendselect" name="" id="pointsValue">
 
                                         </select>
                                     </div>
                                 </div>
                                 <div class="matie">
                                     <p>Select Matier :</p>
-                                    <select name="" id="">
-                                        <option value="">pc</option>
-                                        <option value="">svt</option>
-                                        <option value="">dev</option>
-                                        <option value="">geog</option>
+                                    <select name="" id="matiere">
+                                        <option value="pc">pc</option>
+                                        <option value="svt">svt</option>
+                                        <option value="dev">dev</option>
+                                        <option value="geog">geog</option>
                                     </select>
                                 </div>
                                 <div class="choices">
-                                    <button id="down-scroll">
+                                    <button id="down-scroll"  onclick="btntype()">
                                         <i class="bi bi-chevron-double-down"></i>
                                     </button>
                                     <div class="add-choices" id="add-choices">
@@ -190,67 +190,60 @@
                                             <i class="bi bi-plus-lg"></i>
                                             Add Answer
                                         </button>
-                                        <button id="SendInput" class="button btn1 alternative" style="display: none; box-shadow: -1px 11px 11px -14px black;">Send</button>
+                                        <button id="SendInput" class="button btn1 alternative"
+                                            style="display: none; box-shadow: -1px 11px 11px -14px black;">Send</button>
                                         <div class="input-choices"></div>
+                                        <button id="hello">test</button>
                                     </div>
                                     <script>
+                                        let QuestionType = document.getElementById('type-question')
                                         let count = 1;
-
+                                        QuestionType.disabled = true
                                         document.querySelector("#down-scroll").addEventListener("click", function () {
+                                            QuestionType.disabled = false
                                             document.querySelector(".choices").classList.add("-active");
                                         });
-                                    
-                                        document.querySelector(".btn-add-choice").addEventListener("click",()=>
-                                        {
+
+                                        document.querySelector(".btn-add-choice").addEventListener("click", () => {
                                             document.getElementById("add-choices").insertAdjacentHTML(
                                                 'beforebegin',
-                                                "<input type='text' style='border: 1px solid red; background: red; opacity: 50%; width: 100%; color:white; margin: 10px 0;'>"
-                                                )
+                                                "<input class='inputs' type='text' style='border: 1px solid red; background: red; opacity: 50%; width: 100%; color:white; margin: 10px 0;'>"
+                                            )
                                             document.querySelector(".text").classList.remove('btn-add-choice');
                                             document.querySelector(".text").classList.add(
                                                 'btn-add-choiceWithoutLeft');
-                                            if(count> 5){
+                                            if (count > 5) {
                                                 console.log(count)
                                                 let inputs = document.querySelectorAll('.text')
                                                 let SendInput = document.querySelector('#SendInput')
                                                 console.log(inputs)
                                                 console.log(SendInput)
-                                                Array.from(inputs).map(e => e.style.display="none")
+                                                Array.from(inputs).map(e => e.style.display = "none")
                                                 SendInput.style.display = "block"
                                             }
 
-                                            count++ 
-
-
-                                }
-                                        
-
-                                );
-
-
-                             
-
-
+                                            count++
+                                        });
                                         document.querySelector(".btn-add-choice-corr").addEventListener("click",
-                                             () =>{
+                                            () => {
 
                                                 document.getElementById("add-choices").insertAdjacentHTML(
                                                     'beforebegin',
-                                                    "<input style='border: 1px solid green; background: green; opacity: 50%; width: 100%; color:white;'  type='text'>"
-                                                    )
+                                                    "<input class='inputs CorrectINput' style='border: 1px solid green; background: green; opacity: 50%; width: 100%; color:white;'  type='text'>"
+                                                )
                                                 document.querySelector(".text").classList.remove('btn-add-choice');
                                                 document.querySelector(".text").classList.add(
                                                     'btn-add-choiceWithoutLeft');
-                                                    if(count> 5){
-                                                        console.log(count)
-                                                        let inputs = document.querySelectorAll('.text')
-                                                        let SendInput = document.querySelector('#SendInput')
-                                                        console.log(inputs)
-                                                        console.log(SendInput)
-                                                        Array.from(inputs).map(e => e.style.display="none")
-                                                        SendInput.style.display = "block"
-                                                    }
-                                                    count++ 
+                                                if (count > 5) {
+                                                    console.log(count)
+                                                    let inputs = document.querySelectorAll('.text')
+                                                    let SendInput = document.querySelector('#SendInput')
+                                                    console.log(inputs)
+                                                    console.log(SendInput)
+                                                    Array.from(inputs).map(e => e.style.display = "none")
+                                                    SendInput.style.display = "block"
+                                                }
+                                                count++
 
                                             });
                                     </script>
@@ -278,31 +271,35 @@
             transition: 600ms;
         }
 
-        .swal-button:hover{
+        .swal-button:hover {
             background: none !important;
             border: 1px solid #6263d5;
             color: #6263d5;
         }
 
-        .swal-modal{
+        .swal-modal {
             border-radius: 15px;
             box-shadow: 8px 32px 15px -19px black;
 
         }
 
-        .swal-text{text-align: center !important;}
+        .swal-text {
+            text-align: center !important;
+        }
     </style>
 
     <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/Assets/Js/effect/button.js"></script>
     <script src="/Assets/Js/effect/sparklin.js"></script>
     <script src="/Assets/Js/effect/levelpoint.js"></script>
-    <script src="./Assets/Js/effect/switAl.js"></script>
+    <script type="module" src="./Assets/Js/effect/switAl.js"></script>
     <script src="./Assets/Js/dashboard.js"></script>
+    <script src="./Assets/Js/ValidationType.js"></script>
 
     <!-- JSON SERVER -->
 
-    <script src="/Assets/Js/addQuestion.js"></script>
+    <script type="module
+    " src="/Assets/Js/addQuestion.js"></script>
 
 </body>
 

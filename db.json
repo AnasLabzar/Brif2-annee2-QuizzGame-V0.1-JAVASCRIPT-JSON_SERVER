@@ -1,33 +1,119 @@
 {
-  "admin":[
-   {
-    "email": "Anas@email.com",
-    "password": "123",
-    "username": "Anas",
-    "id": 1
-   },
-   {
-    "email": "abdssamad@email.com",
-    "password": "123",
-    "username": "Abdssamad",
-    "id": 2
-   }
+  "admin": [
+    {
+      "email": "Anas@email.com",
+      "password": "123",
+      "username": "Anas",
+      "id": 1
+    },
+    {
+      "email": "abdssamad@email.com",
+      "password": "123",
+      "username": "Abdssamad",
+      "id": 2
+    }
   ],
   "posts": [
     {
       "id": "1",
       "question": "What is 2 + 3 ?",
-      "answer": "4"
+      "answers": [
+        "2",
+        "5",
+        "4"
+      ],
+      "correctAnswer": [
+        "5"
+      ],
+      "points": "23",
+      "level": "b",
+      "type": "single choices",
+      "matiere": "math"
     },
     {
-      "id": "2",
-      "title": "json-server",
-      "author": "typicode"
+      "question": "serreergergeer",
+      "answers": [
+        "2",
+        "5",
+        "4"
+      ],
+      "correctAnswer": [
+        "5"
+      ],
+      "points": "2sferger3",
+      "leve": "dvgrgrgregb",
+      "type": "sdfergrerer",
+      "matiere": "sfthtrhrthtr",
+      "id": "kXtizXM"
     },
     {
-      "id": "3",
-      "title": "json-server",
-      "author": "typicode"
+      "question": "dfdsfsfsdfsd",
+      "answers": [
+        "azz",
+        "anas",
+        "yssf"
+      ],
+      "correctAnswer": [
+        "anas",
+        "yssf"
+      ],
+      "points": "11",
+      "level": "10",
+      "type": "multichoix",
+      "matiere": "dev",
+      "id": "r2cf7WK"
+    },
+    {
+      "question": "whats is 5+5?",
+      "answers": [
+        "9",
+        "2",
+        "10"
+      ],
+      "correctAnswer": [
+        "10"
+      ],
+      "points": "15",
+      "level": "15",
+      "type": "multichoix",
+      "matiere": "dev",
+      "id": "VuOpltY"
+    },
+    {
+      "question": "dcsdsffsdfdfsdf",
+      "answers": [
+        "dsfdf",
+        "dsffd",
+        "223333"
+      ],
+      "correctAnswer": [
+        "dsfdf",
+        "dsffd"
+      ],
+      "points": "18",
+      "level": "15",
+      "type": "multichoix",
+      "matiere": "dev",
+      "id": "gRuofFe"
+    },
+    {
+      "question": "dsfsfdfsfsdfsdf",
+      "answers": [
+        "qsdsd",
+        "sdqds",
+        "qsdqsds",
+        "dqsdqdqsd",
+        "qsdqdqsdsqdqsdqsdqsd"
+      ],
+      "correctAnswer": [
+        "sdqds",
+        "dqsdqdqsd"
+      ],
+      "points": "22",
+      "level": "20",
+      "type": "multichoix",
+      "matiere": "dev",
+      "id": "pI93665"
     }
   ],
   "comments": [

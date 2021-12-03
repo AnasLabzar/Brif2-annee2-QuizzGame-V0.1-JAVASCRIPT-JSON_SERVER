@@ -25,7 +25,7 @@ const addSelect = (selectNbr) =>{
 
     for(var i = selectNbr ;i < parseInt(selectNbr)+ 5; i++){
         appendselect.innerHTML += `
-        <option value="">${i}</option>
+        <option value="${i}">${i}</option>
         `
     }
 }
