@@ -1,0 +1,736 @@
+$first-color: #eff1ff;
+$second-color: #6263d5;
+
+.btn1 {
+    border: none;
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    flex-direction: row;
+    padding: 7px 50px;
+    border-radius: 30px;
+    background: white;
+    transition: 500ms;
+    --color: #6263d5;
+    --color-hover: white;
+    --background: #ffffff;
+    --background-hover: var(--background);
+    --hover-back: #6263d5;
+    --hover-front: #6263d5;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    border: none;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--c, var(--color));
+    background: var(--b, var(--background));
+    transition: color .2s linear var(--c-d, .2s), background .3s linear var(--b-d, .2s);
+
+    &:not(.simple) {
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            background: var(--pb, var(--hover-back));
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200%;
+            border-radius: var(--br, 40%);
+            transform: translateY(var(--y, 50%));
+            transition: transform var(--d, .4s) ease-in var(--d-d, 0s), border-radius .5s ease var(--br-d, .08s);
+
+        }
+
+        &:after {
+            --pb: var(--hover-front);
+            --d: .44s;
+        }
+    }
+
+    div {
+        z-index: 1;
+        position: relative;
+        display: flex;
+
+        span {
+            display: block;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            animation: var(--name, none) .7s linear forwards .18s;
+        }
+    }
+
+    &.in {
+        --name: move;
+
+        &:not(.out) {
+            --c: var(--color-hover);
+            --b: var(--background-hover);
+
+            &:before,
+            &:after {
+                --y: 0;
+                --br: 5%;
+            }
+
+            &:after {
+                --br: 10%;
+                --d-d: .02s;
+            }
+        }
+
+        &.out {
+            --name: move-out;
+
+            &:before {
+                --d-d: .06s;
+            }
+        }
+    }
+}
+
+body {
+    overflow: hidden;
+    background: $first-color;
+
+    #sidebar {
+        width: 280px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: $second-color;
+
+        header {
+            padding: 10% 0;
+            text-align: center;
+
+            #poster {
+                zoom: 60.5%;
+                opacity: 30%;
+                z-index: -1;
+                position: absolute;
+                top: 0;
+
+                #canva {
+                    display: grid;
+                    /* gap: 1vmin; */
+                    grid-template-columns: repeat(6, 1fr);
+                    grid-template-rows: repeat(19, 1fr);
+                    height: 100%;
+
+
+                    span {
+                        display: grid;
+                        height: 8vmin;
+                        overflow: hidden;
+                        place-items: center;
+                        transition: .3s ease;
+                        width: 8vmin;
+                    }
+
+                    s {
+                        border: 1.33vmin solid black;
+                        border-radius: 100%;
+                        height: 100%;
+                        transition: .3s ease;
+                        width: 100%;
+                    }
+                }
+            }
+
+            h4 {
+                color: white;
+                position: relative;
+                bottom: 20px;
+            }
+        }
+
+        .menu {
+            height: 66%;
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    button {
+                        border: none;
+                        padding: 10px 30px;
+                        border-radius: 30px;
+                        background: none;
+                        color: white;
+                        display: flex;
+                        font-size: 18px;
+                        margin: 30px auto;
+                        gap: 15px;
+                        transition: 500ms;
+
+                        p {
+                            margin: 0;
+                        }
+
+                        &:hover {
+                            background: white;
+                            color: $second-color;
+                            transition: 500ms;
+                        }
+                    }
+
+                    .btn-active {
+                        background: white;
+                        color: $second-color;
+                    }
+                }
+            }
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+
+            .btn1 {
+                border: none;
+                display: flex;
+                gap: 10px;
+                font-size: 16px;
+                flex-direction: row;
+                padding: 7px 50px;
+                border-radius: 30px;
+                background: white;
+                transition: 500ms;
+                --color: #6263d5;
+                --color-hover: white;
+                --background: #ffffff;
+                --background-hover: var(--background);
+                --hover-back: #6263d5;
+                --hover-front: #6263d5;
+                border-radius: 20px;
+                line-height: 24px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: .02em;
+                border: none;
+                outline: none;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                color: var(--c, var(--color));
+                background: var(--b, var(--background));
+                transition: color .2s linear var(--c-d, .2s), background .3s linear var(--b-d, .2s);
+
+                &:not(.simple) {
+
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        background: var(--pb, var(--hover-back));
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        height: 200%;
+                        border-radius: var(--br, 40%);
+                        transform: translateY(var(--y, 50%));
+                        transition: transform var(--d, .4s) ease-in var(--d-d, 0s), border-radius .5s ease var(--br-d, .08s);
+
+                    }
+
+                    &:after {
+                        --pb: var(--hover-front);
+                        --d: .44s;
+                    }
+                }
+
+                div {
+                    z-index: 1;
+                    position: relative;
+                    display: flex;
+
+                    span {
+                        display: block;
+                        backface-visibility: hidden;
+                        transform: translateZ(0);
+                        animation: var(--name, none) .7s linear forwards .18s;
+                    }
+                }
+
+                &.in {
+                    --name: move;
+
+                    &:not(.out) {
+                        --c: var(--color-hover);
+                        --b: var(--background-hover);
+
+                        &:before,
+                        &:after {
+                            --y: 0;
+                            --br: 5%;
+                        }
+
+                        &:after {
+                            --br: 10%;
+                            --d-d: .02s;
+                        }
+                    }
+
+                    &.out {
+                        --name: move-out;
+
+                        &:before {
+                            --d-d: .06s;
+                        }
+                    }
+                }
+            }
+
+            @keyframes move {
+
+                30%,
+                36% {
+                    transform: translateY(calc(-6px * var(--move))) translateZ(0) rotate(calc(-13deg * var(--rotate) * var(--part)));
+                }
+
+                50% {
+                    transform: translateY(calc(3px * var(--move))) translateZ(0) rotate(calc(6deg * var(--rotate) * var(--part)));
+                }
+
+                70% {
+                    transform: translateY(calc(-2px * var(--move))) translateZ(0) rotate(calc(-3deg * var(--rotate) * var(--part)));
+                }
+            }
+
+            @keyframes move-out {
+
+                30%,
+                36% {
+                    transform: translateY(calc(6px * var(--move))) translateZ(0) rotate(calc(13deg * var(--rotate) * var(--part)));
+                }
+
+                50% {
+                    transform: translateY(calc(-3px * var(--move))) translateZ(0) rotate(calc(-6deg * var(--rotate) * var(--part)));
+                }
+
+                70% {
+                    transform: translateY(calc(2px * var(--move))) translateZ(0) rotate(calc(3deg * var(--rotate) * var(--part)));
+                }
+            }
+
+
+            i {
+                font-size: 20px;
+            }
+
+            h4 {
+                margin: 0;
+                align-self: center;
+                font-size: 18px;
+            }
+
+            &.alternative {
+                --color-hover: #2B3044;
+                --background: #362A89;
+                --hover-back: #6D58FF;
+                --hover-front: #F6F8FF;
+            }
+        }
+    }
+
+    .xo {
+        position: relative;
+        bottom: 217px;
+        width: 600px;
+        left: -200px;
+    }
+}
+
+#main-content {
+    margin-left: 280px;
+
+    header {
+        background: rgb(248, 248, 248);
+        padding: 38px 50px;
+    }
+
+    #content {
+        padding: 30px 0;
+
+        .container {
+            max-width: 1550px !important;
+
+            .row {
+                .col {
+                    .hello_admin {
+                        width: 100%;
+                        height: 40vh;
+                        border-radius: 20px;
+                        background: $second-color;
+
+                        box-shadow: -1px 15px 30px -12px black;
+
+                        .text_hello_admin {
+                            padding: 50px 40px;
+                            display: block;
+                            color: white;
+
+                            h2 {
+                                margin-bottom: 20px;
+                            }
+
+                            p {
+                                font-size: 20px;
+                                opacity: 80%;
+                            }
+
+                            button {
+
+                                @extend .btn1;
+                                position: relative;
+                                top: 40px;
+                                // border: none;
+                                // display: flex;
+                                // position: relative;
+                                // top: 50px;
+                                // gap: 10px;
+                                // font-size: 16px;
+                                // flex-direction: row;
+                                // padding: 7px 50px;
+                                // border-radius: 30px;
+                                // background: white;
+                                // transition: 500ms;
+                                // --color: #6263d5;
+                                // --color-hover: white;
+                                // --background: #ffffff;
+                                // --background-hover: var(--background);
+                                // --hover-back: #6263d5;
+                                // --hover-front: #6263d5;
+                                // border-radius: 20px;
+                                // line-height: 24px;
+                                // font-size: 14px;
+                                // font-weight: 600;
+                                // letter-spacing: .02em;
+                                // border: none;
+                                // outline: none;
+                                // position: relative;
+                                // overflow: hidden;
+                                // cursor: pointer;
+                                // color: var(--c, var(--color));
+                                // background: var(--b, var(--background));
+                                // transition: color .2s linear var(--c-d, .2s), background .3s linear var(--b-d, .2s);
+
+                                // &:not(.simple) {
+
+                                //     &:before,
+                                //     &:after {
+                                //         content: '';
+                                //         position: absolute;
+                                //         background: var(--pb, var(--hover-back));
+                                //         top: 0;
+                                //         left: 0;
+                                //         right: 0;
+                                //         height: 200%;
+                                //         border-radius: var(--br, 40%);
+                                //         transform: translateY(var(--y, 50%));
+                                //         transition: transform var(--d, .4s) ease-in var(--d-d, 0s), border-radius .5s ease var(--br-d, .08s);
+
+                                //     }
+
+                                //     &:after {
+                                //         --pb: var(--hover-front);
+                                //         --d: .44s;
+                                //     }
+                                // }
+
+                                // div {
+                                //     z-index: 1;
+                                //     position: relative;
+                                //     display: flex;
+
+                                //     span {
+                                //         display: block;
+                                //         backface-visibility: hidden;
+                                //         transform: translateZ(0);
+                                //         animation: var(--name, none) .7s linear forwards .18s;
+                                //     }
+                                // }
+
+                                // &.in {
+                                //     --name: move;
+
+                                //     &:not(.out) {
+                                //         --c: var(--color-hover);
+                                //         --b: var(--background-hover);
+
+                                //         &:before,
+                                //         &:after {
+                                //             --y: 0;
+                                //             --br: 5%;
+                                //         }
+
+                                //         &:after {
+                                //             --br: 10%;
+                                //             --d-d: .02s;
+                                //         }
+                                //     }
+
+                                //     &.out {
+                                //         --name: move-out;
+
+                                //         &:before {
+                                //             --d-d: .06s;
+                                //         }
+                                //     }
+                                // }
+                            }
+                        }
+                    }
+
+                    #content-question {
+                        display: flex;
+                        margin: 60px 0px;
+                        width: inherit;
+                        position: relative;
+                        bottom: 240px;
+                        left: 20px;
+
+                        .row {
+                            width: 100%;
+
+                            button {
+                                float: right;
+                                box-shadow: -1px 11px 11px -14px black;
+
+
+
+                            }
+                        }
+
+                    }
+
+
+                    .logo-right {
+                        width: 30%;
+                        opacity: 30%;
+                        position: relative;
+                        bottom: 316px;
+                        display: flex;
+                        float: right;
+                    }
+
+                    .xo1 {
+                        display: block;
+                        position: relative;
+                        bottom: 225px;
+                        left: 150px;
+                        width: 700px;
+                    }
+                }
+
+                .col-4 {
+                    .add-question {
+                        position: relative;
+
+                        #header-question {
+                            display: flex;
+                            gap: 24px;
+
+                            .add-question-text {
+                                p {
+                                    position: relative;
+                                    top: 10px;
+                                    left: 10px;
+                                }
+
+                                input {
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 30px;
+                                    background: white;
+                                    padding: 8px 25px;
+                                    width: 300px;
+                                }
+                            }
+
+                            .add-type-question {
+                                p {
+                                    position: relative;
+                                    top: 10px;
+                                    left: 10px;
+                                }
+
+                                select {
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 30px;
+                                    background: white;
+                                    padding: 8px 15px;
+                                    width: 160px;
+
+
+                                }
+                            }
+                        }
+
+                        #select-type {
+                            margin: 20px 0;
+
+                            .row {
+                                .col {
+                                    p {
+                                        position: relative;
+                                        top: 10px;
+                                        left: 10px;
+                                    }
+
+                                    select {
+                                        border: none;
+                                        outline: none;
+                                        border-radius: 30px;
+                                        background: white;
+                                        padding: 8px 15px;
+                                        width: 140px;
+                                    }
+
+                                    input {
+                                        border: none;
+                                        outline: none;
+                                        border-radius: 30px;
+                                        background: white;
+                                        padding: 8px 25px;
+                                        width: 20px;
+                                    }
+                                }
+                            }
+
+                            .matie {
+                                margin: 20px 0;
+
+                                p {
+                                    position: relative;
+                                    top: 10px;
+                                    left: 10px;
+                                }
+
+                                select {
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 30px;
+                                    background: white;
+                                    padding: 10px 15px;
+                                    width: 100%;
+
+
+                                }
+                            }
+
+                            .choices {
+                                width: 15%;
+                                padding: 8px 30px;
+                                background: white;
+                                border-radius: 30px;
+                                display: flex;
+                                margin: 40px auto;
+                                font-size: 20px;
+                                transition: 400ms;
+
+                                button {
+                                    border: none;
+                                    background: none;
+                                    outline: none;
+
+                                    .bi-chevron-double-down {
+                                        position: relative;
+                                        right: 8px;
+                                        animation: bounce 1000ms ease infinite;
+
+                                        @keyframes bounce {
+
+                                            0%,
+                                            100% {
+                                                top: -3px;
+                                                opacity: 0.5
+                                            }
+
+                                            25% {
+                                                top: 4px;
+                                                opacity: 1
+                                            }
+
+                                            50% {
+                                                opacity: 0.8
+                                            }
+                                        }
+                                    }
+                                }
+
+                                input {
+                                    border: 1px solid $second-color;
+                                    outline: none;
+                                    border-radius: 30px;
+                                    background: none;
+                                    padding: 5px 25px;
+                                    width: 250px;
+                                    margin: 10px 0;
+                                }
+
+                                .add-choices {
+                                    display: none;
+                                }
+                            }
+
+                            .-active {
+                                width: 100%;
+                                height: auto;
+                                padding: 20px 10px;
+                                display: grid;
+                                flex-direction: column;
+                                justify-content: center;
+                                max-height: 450px;
+
+                                @media screen and (max-height: 400px) {
+                                    overflow-y: scroll;
+                                }
+
+                                .bi-chevron-double-down {
+                                    display: none;
+                                }
+
+                                .add-choices {
+                                    display: flex;
+                                    margin: 0 auto;
+
+
+                                    .btn-add-choice {
+                                        --background: $second-color;
+                                        box-shadow: -1px 12px 23px -15px black;
+
+                                    }
+
+                                    .btn-add-choice-corr {
+                                        box-shadow: -1px 12px 23px -15px black;
+
+                                    }
+
+                                    .btn-add-choiceWithoutLeft {
+                                        --background: $second-color;
+                                        box-shadow: -1px 12px 23px -15px black;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

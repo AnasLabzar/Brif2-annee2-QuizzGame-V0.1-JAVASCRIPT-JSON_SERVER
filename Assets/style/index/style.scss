@@ -1,0 +1,180 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #6263d5;
+    overflow: hidden;
+
+    .snow {
+        @function random_range($min, $max) {
+            $rand: random();
+            $random_range: $min + floor($rand * (($max - $min) + 1));
+            @return $random_range;
+        }
+
+        .snow {
+            $total: 200;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+
+            @for $i from 1 through $total {
+                $random-x: random(1000000) * 0.0001vw;
+                $random-offset: random_range(-100000, 100000) * 0.0001vw;
+                $random-x-end: $random-x + $random-offset;
+                $random-x-end-yoyo: $random-x + ($random-offset / 2);
+                $random-yoyo-time: random_range(30000, 80000) / 100000;
+                $random-yoyo-y: $random-yoyo-time * 100vh;
+                $random-scale: random(10000) * 0.0001;
+                $fall-duration: random_range(10, 30) * 1s;
+                $fall-delay: random(30) * -1s;
+
+                &:nth-child(#{$i}) {
+                    opacity: random(10000) * 0.0001;
+                    transform: translate($random-x, -10px) scale($random-scale);
+                    animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+                }
+
+                @keyframes fall-#{$i} {
+                    #{percentage($random-yoyo-time)} {
+                        transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+                    }
+
+                    to {
+                        transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+                    }
+                }
+            }
+        }
+
+    }
+
+    .container {
+        #logo {
+            img {
+                display: flex;
+                margin: 0 auto;
+                width: 18%;
+                position: relative;
+                top: 150px;
+            }
+
+            p {
+                font-size: 30px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color: white;
+                text-align: center;
+                position: relative;
+                top: 120px;
+                z-index: -1;
+            }
+        }
+
+        #home1 {
+            background: white;
+            // margin-top: 150px;
+            width: 50%;
+            height: auto;
+            display: flex;
+            margin: 60px auto;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            transition: 0.6s;
+            border-radius: 15px;
+            padding: 20px 30px;
+
+            &:hover {
+                margin: 140px auto;
+                transition: 0.5s;
+            }
+
+
+            h1 {
+                position: relative;
+                top: 70px;
+                font-size: 2rem;
+                font-weight: 500;
+                color: rgb(0, 0, 0);
+                margin-bottom: 5rem;
+                text-align: center;
+            }
+
+            .flex-center {
+                padding: 0 40px;
+
+                button {
+                    border-radius: 20px;
+                }
+
+                .btn1 {
+                    margin-bottom: 20px;
+                    background: #6263d5;
+                    color: white;
+
+                    &:hover {
+                        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+
+        #register {
+            display: none;
+            @extend #home1 ;
+            flex-direction: column;
+            text-align: center;
+            font-size: 20px;
+
+            #reg{
+                p{
+                    position: relative;
+                    top: 20px;
+                }
+                .inputReg {
+                    border: 1px solid #6263d5;
+                    outline: none;
+                    border-radius: 30px;
+                    background: none;
+                    padding: 5px 25px;
+                    width: 250px;
+                    margin: 10px 0;
+                }
+            }
+
+            .btn1{
+                padding: 10px 20px;
+                color: white;
+                background: #6263d5;
+                border: none;
+                margin: 30px auto;
+                font-size: 16px;
+                width: 40%;
+                display: flex;
+                justify-content: center;
+                border-radius: 30px;
+            }
+        }
+
+        #logindiv{
+            @extend #register ;
+
+            .err{
+                background: rgb(236, 1, 1);
+                border-radius: 30px;
+                position: relative;
+                display: none;
+                top: 0;
+                text-align: center;
+                margin: auto;
+                padding: 10px 40px;
+
+                p{
+                    color: white;
+                    margin: 0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

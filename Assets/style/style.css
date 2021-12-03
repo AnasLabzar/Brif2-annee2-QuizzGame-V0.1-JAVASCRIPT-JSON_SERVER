@@ -1,0 +1,711 @@
+.btn1, #main-content #content .container .row .col .hello_admin .text_hello_admin button {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 7px 50px;
+  border-radius: 30px;
+  background: white;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  --color: #6263d5;
+  --color-hover: white;
+  --background: #ffffff;
+  --background-hover: var(--background);
+  --hover-back: #6263d5;
+  --hover-front: #6263d5;
+  border-radius: 20px;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--c, var(--color));
+  background: var(--b, var(--background));
+  -webkit-transition: color 0.2s linear var(--c-d, 0.2s), background 0.3s linear var(--b-d, 0.2s);
+  transition: color 0.2s linear var(--c-d, 0.2s), background 0.3s linear var(--b-d, 0.2s);
+}
+
+.btn1:not(.simple):before, #main-content #content .container .row .col .hello_admin .text_hello_admin button:not(.simple):before, .btn1:not(.simple):after, #main-content #content .container .row .col .hello_admin .text_hello_admin button:not(.simple):after {
+  content: '';
+  position: absolute;
+  background: var(--pb, var(--hover-back));
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200%;
+  border-radius: var(--br, 40%);
+  -webkit-transform: translateY(var(--y, 50%));
+          transform: translateY(var(--y, 50%));
+  -webkit-transition: border-radius 0.5s ease var(--br-d, 0.08s), -webkit-transform var(--d, 0.4s) ease-in var(--d-d, 0s);
+  transition: border-radius 0.5s ease var(--br-d, 0.08s), -webkit-transform var(--d, 0.4s) ease-in var(--d-d, 0s);
+  transition: transform var(--d, 0.4s) ease-in var(--d-d, 0s), border-radius 0.5s ease var(--br-d, 0.08s);
+  transition: transform var(--d, 0.4s) ease-in var(--d-d, 0s), border-radius 0.5s ease var(--br-d, 0.08s), -webkit-transform var(--d, 0.4s) ease-in var(--d-d, 0s);
+}
+
+.btn1:not(.simple):after, #main-content #content .container .row .col .hello_admin .text_hello_admin button:not(.simple):after {
+  --pb: var(--hover-front);
+  --d: .44s;
+}
+
+.btn1 div, #main-content #content .container .row .col .hello_admin .text_hello_admin button div {
+  z-index: 1;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn1 div span, #main-content #content .container .row .col .hello_admin .text_hello_admin button div span {
+  display: block;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation: var(--name, none) 0.7s linear forwards 0.18s;
+          animation: var(--name, none) 0.7s linear forwards 0.18s;
+}
+
+.btn1.in, #main-content #content .container .row .col .hello_admin .text_hello_admin button.in {
+  --name: move;
+}
+
+.btn1.in:not(.out), #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out) {
+  --c: var(--color-hover);
+  --b: var(--background-hover);
+}
+
+.btn1.in:not(.out):before, #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out):before, .btn1.in:not(.out):after, #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out):after {
+  --y: 0;
+  --br: 5%;
+}
+
+.btn1.in:not(.out):after, #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out):after {
+  --br: 10%;
+  --d-d: .02s;
+}
+
+.btn1.in.out, #main-content #content .container .row .col .hello_admin .text_hello_admin button.in.out {
+  --name: move-out;
+}
+
+.btn1.in.out:before, #main-content #content .container .row .col .hello_admin .text_hello_admin button.in.out:before {
+  --d-d: .06s;
+}
+
+body {
+  overflow: hidden;
+  background: #eff1ff;
+}
+
+body #sidebar {
+  width: 280px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #6263d5;
+}
+
+body #sidebar header {
+  padding: 10% 0;
+  text-align: center;
+}
+
+body #sidebar header #poster {
+  zoom: 60.5%;
+  opacity: 30%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+}
+
+body #sidebar header #poster #canva {
+  display: -ms-grid;
+  display: grid;
+  /* gap: 1vmin; */
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-rows: (1fr)[19];
+      grid-template-rows: repeat(19, 1fr);
+  height: 100%;
+}
+
+body #sidebar header #poster #canva span {
+  display: -ms-grid;
+  display: grid;
+  height: 8vmin;
+  overflow: hidden;
+  place-items: center;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  width: 8vmin;
+}
+
+body #sidebar header #poster #canva s {
+  border: 1.33vmin solid black;
+  border-radius: 100%;
+  height: 100%;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  width: 100%;
+}
+
+body #sidebar header h4 {
+  color: white;
+  position: relative;
+  bottom: 20px;
+}
+
+body #sidebar .menu {
+  height: 66%;
+}
+
+body #sidebar .menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+body #sidebar .menu ul li button {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background: none;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+  margin: 30px auto;
+  gap: 15px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+body #sidebar .menu ul li button p {
+  margin: 0;
+}
+
+body #sidebar .menu ul li button:hover {
+  background: white;
+  color: #6263d5;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+body #sidebar .menu ul li .btn-active {
+  background: white;
+  color: #6263d5;
+}
+
+body #sidebar footer {
+  position: relative;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #sidebar footer .btn1, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 7px 50px;
+  border-radius: 30px;
+  background: white;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  --color: #6263d5;
+  --color-hover: white;
+  --background: #ffffff;
+  --background-hover: var(--background);
+  --hover-back: #6263d5;
+  --hover-front: #6263d5;
+  border-radius: 20px;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--c, var(--color));
+  background: var(--b, var(--background));
+  -webkit-transition: color 0.2s linear var(--c-d, 0.2s), background 0.3s linear var(--b-d, 0.2s);
+  transition: color 0.2s linear var(--c-d, 0.2s), background 0.3s linear var(--b-d, 0.2s);
+}
+
+body #sidebar footer .btn1:not(.simple):before, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button:not(.simple):before, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button:not(.simple):before, body #sidebar footer .btn1:not(.simple):after, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button:not(.simple):after, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button:not(.simple):after {
+  content: '';
+  position: absolute;
+  background: var(--pb, var(--hover-back));
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200%;
+  border-radius: var(--br, 40%);
+  -webkit-transform: translateY(var(--y, 50%));
+          transform: translateY(var(--y, 50%));
+  -webkit-transition: border-radius 0.5s ease var(--br-d, 0.08s), -webkit-transform var(--d, 0.4s) ease-in var(--d-d, 0s);
+  transition: border-radius 0.5s ease var(--br-d, 0.08s), -webkit-transform var(--d, 0.4s) ease-in var(--d-d, 0s);
+  transition: transform var(--d, 0.4s) ease-in var(--d-d, 0s), border-radius 0.5s ease var(--br-d, 0.08s);
+  transition: transform var(--d, 0.4s) ease-in var(--d-d, 0s), border-radius 0.5s ease var(--br-d, 0.08s), -webkit-transform var(--d, 0.4s) ease-in var(--d-d, 0s);
+}
+
+body #sidebar footer .btn1:not(.simple):after, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button:not(.simple):after, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button:not(.simple):after {
+  --pb: var(--hover-front);
+  --d: .44s;
+}
+
+body #sidebar footer .btn1 div, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button div, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button div {
+  z-index: 1;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #sidebar footer .btn1 div span, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button div span, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button div span {
+  display: block;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation: var(--name, none) 0.7s linear forwards 0.18s;
+          animation: var(--name, none) 0.7s linear forwards 0.18s;
+}
+
+body #sidebar footer .btn1.in, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in {
+  --name: move;
+}
+
+body #sidebar footer .btn1.in:not(.out), body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out), #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in:not(.out) {
+  --c: var(--color-hover);
+  --b: var(--background-hover);
+}
+
+body #sidebar footer .btn1.in:not(.out):before, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out):before, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in:not(.out):before, body #sidebar footer .btn1.in:not(.out):after, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out):after, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in:not(.out):after {
+  --y: 0;
+  --br: 5%;
+}
+
+body #sidebar footer .btn1.in:not(.out):after, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in:not(.out):after, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in:not(.out):after {
+  --br: 10%;
+  --d-d: .02s;
+}
+
+body #sidebar footer .btn1.in.out, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in.out, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in.out {
+  --name: move-out;
+}
+
+body #sidebar footer .btn1.in.out:before, body #sidebar footer #main-content #content .container .row .col .hello_admin .text_hello_admin button.in.out:before, #main-content #content .container .row .col .hello_admin .text_hello_admin body #sidebar footer button.in.out:before {
+  --d-d: .06s;
+}
+
+@-webkit-keyframes move {
+  30%,
+  36% {
+    -webkit-transform: translateY(calc(-6px * var(--move))) translateZ(0) rotate(calc(-13deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(-6px * var(--move))) translateZ(0) rotate(calc(-13deg * var(--rotate) * var(--part)));
+  }
+  50% {
+    -webkit-transform: translateY(calc(3px * var(--move))) translateZ(0) rotate(calc(6deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(3px * var(--move))) translateZ(0) rotate(calc(6deg * var(--rotate) * var(--part)));
+  }
+  70% {
+    -webkit-transform: translateY(calc(-2px * var(--move))) translateZ(0) rotate(calc(-3deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(-2px * var(--move))) translateZ(0) rotate(calc(-3deg * var(--rotate) * var(--part)));
+  }
+}
+
+@keyframes move {
+  30%,
+  36% {
+    -webkit-transform: translateY(calc(-6px * var(--move))) translateZ(0) rotate(calc(-13deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(-6px * var(--move))) translateZ(0) rotate(calc(-13deg * var(--rotate) * var(--part)));
+  }
+  50% {
+    -webkit-transform: translateY(calc(3px * var(--move))) translateZ(0) rotate(calc(6deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(3px * var(--move))) translateZ(0) rotate(calc(6deg * var(--rotate) * var(--part)));
+  }
+  70% {
+    -webkit-transform: translateY(calc(-2px * var(--move))) translateZ(0) rotate(calc(-3deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(-2px * var(--move))) translateZ(0) rotate(calc(-3deg * var(--rotate) * var(--part)));
+  }
+}
+
+@-webkit-keyframes move-out {
+  30%,
+  36% {
+    -webkit-transform: translateY(calc(6px * var(--move))) translateZ(0) rotate(calc(13deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(6px * var(--move))) translateZ(0) rotate(calc(13deg * var(--rotate) * var(--part)));
+  }
+  50% {
+    -webkit-transform: translateY(calc(-3px * var(--move))) translateZ(0) rotate(calc(-6deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(-3px * var(--move))) translateZ(0) rotate(calc(-6deg * var(--rotate) * var(--part)));
+  }
+  70% {
+    -webkit-transform: translateY(calc(2px * var(--move))) translateZ(0) rotate(calc(3deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(2px * var(--move))) translateZ(0) rotate(calc(3deg * var(--rotate) * var(--part)));
+  }
+}
+
+@keyframes move-out {
+  30%,
+  36% {
+    -webkit-transform: translateY(calc(6px * var(--move))) translateZ(0) rotate(calc(13deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(6px * var(--move))) translateZ(0) rotate(calc(13deg * var(--rotate) * var(--part)));
+  }
+  50% {
+    -webkit-transform: translateY(calc(-3px * var(--move))) translateZ(0) rotate(calc(-6deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(-3px * var(--move))) translateZ(0) rotate(calc(-6deg * var(--rotate) * var(--part)));
+  }
+  70% {
+    -webkit-transform: translateY(calc(2px * var(--move))) translateZ(0) rotate(calc(3deg * var(--rotate) * var(--part)));
+            transform: translateY(calc(2px * var(--move))) translateZ(0) rotate(calc(3deg * var(--rotate) * var(--part)));
+  }
+}
+
+body #sidebar footer i {
+  font-size: 20px;
+}
+
+body #sidebar footer h4 {
+  margin: 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 18px;
+}
+
+body #sidebar footer.alternative {
+  --color-hover: #2B3044;
+  --background: #362A89;
+  --hover-back: #6D58FF;
+  --hover-front: #F6F8FF;
+}
+
+body .xo {
+  position: relative;
+  bottom: 217px;
+  width: 600px;
+  left: -200px;
+}
+
+#main-content {
+  margin-left: 280px;
+}
+
+#main-content header {
+  background: #f8f8f8;
+  padding: 38px 50px;
+}
+
+#main-content #content {
+  padding: 30px 0;
+}
+
+#main-content #content .container {
+  max-width: 1550px !important;
+}
+
+#main-content #content .container .row .col .hello_admin {
+  width: 100%;
+  height: 40vh;
+  border-radius: 20px;
+  background: #6263d5;
+  -webkit-box-shadow: -1px 15px 30px -12px black;
+          box-shadow: -1px 15px 30px -12px black;
+}
+
+#main-content #content .container .row .col .hello_admin .text_hello_admin {
+  padding: 50px 40px;
+  display: block;
+  color: white;
+}
+
+#main-content #content .container .row .col .hello_admin .text_hello_admin h2 {
+  margin-bottom: 20px;
+}
+
+#main-content #content .container .row .col .hello_admin .text_hello_admin p {
+  font-size: 20px;
+  opacity: 80%;
+}
+
+#main-content #content .container .row .col .hello_admin .text_hello_admin button {
+  position: relative;
+  top: 40px;
+}
+
+#main-content #content .container .row .col #content-question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 60px 0px;
+  width: inherit;
+  position: relative;
+  bottom: 240px;
+  left: 20px;
+}
+
+#main-content #content .container .row .col #content-question .row {
+  width: 100%;
+}
+
+#main-content #content .container .row .col #content-question .row button {
+  float: right;
+  -webkit-box-shadow: -1px 11px 11px -14px black;
+          box-shadow: -1px 11px 11px -14px black;
+}
+
+#main-content #content .container .row .col .logo-right {
+  width: 30%;
+  opacity: 30%;
+  position: relative;
+  bottom: 316px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+}
+
+#main-content #content .container .row .col .xo1 {
+  display: block;
+  position: relative;
+  bottom: 225px;
+  left: 150px;
+  width: 700px;
+}
+
+#main-content #content .container .row .col-4 .add-question {
+  position: relative;
+}
+
+#main-content #content .container .row .col-4 .add-question #header-question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+}
+
+#main-content #content .container .row .col-4 .add-question #header-question .add-question-text p {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#main-content #content .container .row .col-4 .add-question #header-question .add-question-text input {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: white;
+  padding: 8px 25px;
+  width: 300px;
+}
+
+#main-content #content .container .row .col-4 .add-question #header-question .add-type-question p {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#main-content #content .container .row .col-4 .add-question #header-question .add-type-question select {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: white;
+  padding: 8px 15px;
+  width: 160px;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type {
+  margin: 20px 0;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .row .col p {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .row .col select {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: white;
+  padding: 8px 15px;
+  width: 140px;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .row .col input {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: white;
+  padding: 8px 25px;
+  width: 20px;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .matie {
+  margin: 20px 0;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .matie p {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .matie select {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: white;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .choices {
+  width: 15%;
+  padding: 8px 30px;
+  background: white;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 40px auto;
+  font-size: 20px;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .choices button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .choices button .bi-chevron-double-down {
+  position: relative;
+  right: 8px;
+  -webkit-animation: bounce 1000ms ease infinite;
+          animation: bounce 1000ms ease infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%,
+  100% {
+    top: -3px;
+    opacity: 0.5;
+  }
+  25% {
+    top: 4px;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    top: -3px;
+    opacity: 0.5;
+  }
+  25% {
+    top: 4px;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .choices input {
+  border: 1px solid #6263d5;
+  outline: none;
+  border-radius: 30px;
+  background: none;
+  padding: 5px 25px;
+  width: 250px;
+  margin: 10px 0;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .choices .add-choices {
+  display: none;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .-active {
+  width: 100%;
+  height: auto;
+  padding: 20px 10px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-height: 450px;
+}
+
+@media screen and (max-height: 400px) {
+  #main-content #content .container .row .col-4 .add-question #select-type .-active {
+    overflow-y: scroll;
+  }
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .-active .bi-chevron-double-down {
+  display: none;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .-active .add-choices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .-active .add-choices .btn-add-choice {
+  --background: $second-color;
+  -webkit-box-shadow: -1px 12px 23px -15px black;
+          box-shadow: -1px 12px 23px -15px black;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .-active .add-choices .btn-add-choice-corr {
+  -webkit-box-shadow: -1px 12px 23px -15px black;
+          box-shadow: -1px 12px 23px -15px black;
+}
+
+#main-content #content .container .row .col-4 .add-question #select-type .-active .add-choices .btn-add-choiceWithoutLeft {
+  --background: $second-color;
+  -webkit-box-shadow: -1px 12px 23px -15px black;
+          box-shadow: -1px 12px 23px -15px black;
+}
+/*# sourceMappingURL=style.css.map */
